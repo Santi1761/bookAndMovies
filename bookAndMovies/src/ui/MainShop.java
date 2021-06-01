@@ -131,7 +131,9 @@ public class MainShop {
 		
 	}
 	
-	
+	public void addProductCatalog() {
+		
+	}
 	
 	
 

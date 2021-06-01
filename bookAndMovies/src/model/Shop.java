@@ -71,7 +71,10 @@ public class Shop {
 	 * informando que el producto ya existe. 
 	 */
 	public String addProduct(String code,String name, int units, double price, ProductType type) {
-		return "";
+		Product sale = new ProductForSale(code, name, units, price, type);
+		catalog.add(sale);
+		return "El producto para vender, fue agregado al catalogo :)";
+		
 	}
 	
 
@@ -89,7 +92,11 @@ public class Shop {
 	 * informando que el producto ya existe. 
 	 */
 	public String addProduct(String code, String name, double price, ProductType type) {
-		return "";
+		Product rent = new ProductForRent(code, name, price, type);
+		catalog.add(rent);
+
+		return "El producto para rentar, fue agregado al catalogo :)";
+	
 	}
 	
 	/**
@@ -98,7 +105,13 @@ public class Shop {
 	 * @return cadena con la informacion de los productos
 	 */
 	public String showCatalog() {
-		return "";
+		String info = " ";
+
+		for(int i = 0; i < catalog.size(); i++ ){
+			info += catalog.get(i).getInformation() +"\n";
+		}	
+		
+		return info;
 	}
 	
 	/**
@@ -112,6 +125,14 @@ public class Shop {
 	 */
 	public Product findProduct(String code) {
 		Product p=null;
+		
+		for(int i = 0; i < catalog.size(); i++ )
+		{
+			if( catalog.get(i).getCode().equalsIgnoreCase(code) )
+			{
+				p = catalog.get(i);
+			}
+		}
 		
 		return p;
 	}
@@ -205,7 +226,34 @@ public class Shop {
 		 * si no: 
 		 *  - Se muestra un mensaje reportando el error.
 		 */
-		return "";
+		
+		String out = "";
+		double saleP = 0;
+		double priceED = 0;
+		double amountT = 0;
+		double totalPay = 0;
+
+		//1 
+		if( p.isSafePrice(units) == true )
+		{
+			//2
+			saleP = p.getSalePrice(units);
+			//3
+			priceED = p.applyExtraDiscount( saleP, discount );
+			//4
+			amountT = priceED * TAX_IVA;
+			//5
+			totalPay = p.calculateTax( priceED, amountT );
+			totalSales++;
+			//6
+			out = "\n\tTOTAL = "+totalPay +"\n\t==The product has been sold==";
+
+		}
+		else
+		{
+			out = "\n\t==ERROR==\n\tNot enough units";
+		}
+		return out;
 		
 	}
 	
@@ -233,7 +281,22 @@ public class Shop {
 		 * si no: 
 		 *  - Se muestra un mensaje reportando el error.
 		 */
-		return"";
+		String out = "";
+		double rentPrice = 0;
+		//1
+		if( p.isSafeRent() == true ){
+		
+			//2
+			rentPrice = p.getRentPrice( days );
+			//3
+			p.rentProduct( days );
+
+			out = "\n\tTOTAL= "+ rentPrice +"\n\t==The product has been rented==";
+		}else{
+			out = "\n\t==ERROR==\n\tThe product is not available";
+		}
+		
+		return out;
 	}
 	
 

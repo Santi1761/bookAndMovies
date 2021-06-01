@@ -4,7 +4,7 @@ public abstract class Product {
 	
 	private String code;
 	private String  name;
-	private int units;
+	protected int units;
 	protected double price;
 	
 	private ProductType type;

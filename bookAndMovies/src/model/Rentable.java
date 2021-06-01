@@ -3,7 +3,7 @@ package model;
 public interface Rentable {
 	
 	public boolean isSafeRent();
-	public double getRentPrice(int x);
-	public String rentProduct(int x);
+	public double getRentPrice(int days);
+	public String rentProduct(int days);
 
 }
