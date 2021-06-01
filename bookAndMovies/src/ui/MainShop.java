@@ -6,9 +6,10 @@ import model.Shop;
 
 /**
  * 
- * @author angievig
+ * @author Santiago Arboleda Velasco
  *
  */
+
 public class MainShop {
 	private Shop shop;
 	private static Scanner sc = new Scanner(System.in);
@@ -130,9 +131,7 @@ public class MainShop {
 		
 	}
 	
-	public void addProductCatalog() {
-		
-	}
+	
 	
 	
 

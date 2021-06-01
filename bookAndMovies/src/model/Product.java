@@ -18,6 +18,9 @@ public abstract class Product {
 		this.price = price;
 		this.type = type;
 	}
+	
+	public abstract String Information();
+	
 	public String getCode() {
 		return code;
 	}
@@ -57,3 +60,7 @@ public abstract class Product {
 
 
 }
+
+
+
+

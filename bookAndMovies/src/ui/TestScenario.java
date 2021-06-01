@@ -1,8 +1,4 @@
 package ui;
-
-
-
-
 import model.ProductType;
 import model.Shop;
 
@@ -12,6 +8,7 @@ import model.Shop;
  * @author avillota
  *	
  */
+
 public class TestScenario {
 	
 	public void createScenario1(Shop shop) {
@@ -27,9 +24,7 @@ public class TestScenario {
 		//Products for sale
 		shop.addProduct("B004", "El señor de los anillos, la comunidad del anillo",10, 50000, ProductType.BOOK);
 
-		
-		
-		
+				
 		//Creating and adding Magazines
 		shop.addProduct("M001", "Nintendo",3000, ProductType.MAGAZINE);
 		//Products for sale
