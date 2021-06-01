@@ -17,7 +17,7 @@ public class ProductForSale extends Product implements Saleable {
 		return subtotal;
 	}
 
-	@Override
+	
 	public boolean isSafePrice() {
 		boolean safe = false;
 		
@@ -46,9 +46,21 @@ public class ProductForSale extends Product implements Saleable {
 
 	@Override
 	public String getInformation() {
-		String info = "The code is: "+super.getCode()+ "\nThe name is: "+super.getName()+ "The units are: "+super.getUnits()+ "\nThe price is price: "+super.getPrice(1)+"\nThe type is: "+super.getType()+"\nThe state is: "+state+"\nThe date of today is: "+ date;
+		String info = "The code is: "+super.getCode()+ "\nThe name is: "+super.getName()+ "The units are: "+super.getUnits()+ "\nThe price is price: "+super.getPrice(1)+"\nThe type is: "+super.getType();
 		return info;
 		
+	}
+
+	@Override
+	public boolean isSafePrice(int units) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String Information() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

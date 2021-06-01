@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 
+import model.ProductType;
 import model.Shop;
 
 /**
@@ -132,7 +133,69 @@ public class MainShop {
 	}
 	
 	public void addProductCatalog() {
-		
+		System.out.println("Este producto es para vender o rentar?");
+		System.out.println("1. Vender");
+		System.out.println("2. Rentar");
+		int option = sc.nextInt();
+		sc.nextLine();
+		if (option==1){
+
+			System.out.println("Ingresa el codigo ");
+			String code = sc.nextLine();
+			System.out.println("Nombre: ");
+			String name = sc.nextLine();
+			System.out.println("Unidades: ");
+			int units = sc.nextInt();
+			System.out.println("Precio: ");
+			double price = sc.nextDouble();
+			
+			System.out.println("Selecciona el tipo de producto: ");
+			System.out.println("1. Libro");
+			System.out.println("2. Magazine");
+			System.out.println("3. DVD");
+			System.out.println("4. Pelicula");
+			int type = sc.nextInt();
+			if (type==1){
+				System.out.println(shop.addProduct(code,name,units,price,ProductType.BOOK));
+			}else if(type==2){
+				System.out.println(shop.addProduct(code,name,units,price,ProductType.MAGAZINE));
+
+			}else if (type==3){
+				System.out.println(shop.addProduct(code,name,units,price,ProductType.DVD_MOVIE));
+
+			}else if (type==4){
+				System.out.println(shop.addProduct(code,name,units,price,ProductType.DOWNLOAD_MOVIE));
+
+			}else System.out.println("Elgiste un tipo que no es");
+
+
+		}else if (option==2){
+			System.out.println("Ingresa el codigo ");
+			String code= sc.nextLine();
+			System.out.println("Nombre: ");
+			String name = sc.nextLine();
+			System.out.println("Precio: ");
+			double price = sc.nextDouble();
+			System.out.println("Selecciona el tipo de producto: ");
+			System.out.println("1. Libro");
+			System.out.println("2. Magazine");
+			System.out.println("3. DVD");
+			System.out.println("4. Pelicula");
+			int type = sc.nextInt();
+			if (type==1){
+				System.out.println(shop.addProduct(code,name,price,ProductType.BOOK));
+			}else if(type==2){
+				System.out.println(shop.addProduct(code,name,price,ProductType.MAGAZINE));
+
+			}else if (type==3){
+				System.out.println(shop.addProduct(code,name,price,ProductType.DVD_MOVIE));
+
+			}else if (type==4){
+				System.out.println(shop.addProduct(code,name,price,ProductType.DOWNLOAD_MOVIE));
+
+			}else System.out.println("Incorrecto");
+
+		} else System.out.println("Selecciona una buena porfi :)");
 	}
 	
 	
